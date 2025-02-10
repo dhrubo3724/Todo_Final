@@ -13,7 +13,7 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 3,
+      elevation: 4,
       margin: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       child: ListTile(
           title: Text(
