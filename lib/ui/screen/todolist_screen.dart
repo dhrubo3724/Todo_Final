@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_final/entities/Todo.dart';
+import 'package:todo_final/ui/screen/add_new_screen.dart';
 import 'package:todo_final/ui/widgets/Todoitems.dart';
 
 class TodolistScreen extends StatefulWidget {
@@ -20,16 +21,26 @@ class _TodolistScreenState extends State<TodolistScreen> {
       body: ListView.builder(
         itemCount: 7,
         itemBuilder: (context, index) {
-          return TodoItem(
-            todo: Todo('Title will here', 'Description ijahfj', DateTime.now()),
-            onIconButtonpressed: () {},
+          return Dismissible(
+            key: UniqueKey(),
+            onDismissed: (_) {},
+            child: TodoItem(
+              todo:
+                  Todo('Title will here', 'Description ijahfj', DateTime.now()),
+              onIconButtonPressed: () {},
+            ),
           );
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddNewScreen()),
+          );
+        },
         tooltip: 'Add New Todo',
-        label: Text("Add"),
+        label: Text("Add New Todo"),
         icon: Icon(Icons.add),
       ),
     );
