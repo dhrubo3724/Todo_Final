@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_final/app.dart';
 
 class AddNewScreen extends StatefulWidget {
-  const AddNewScreen({super.key});
+  const AddNewScreen({super.key, required this.onAddTodo});
+
+  final Function(Todo) onAddTodo;
 
   @override
   State<AddNewScreen> createState() => _AddNewScreenState();
@@ -58,6 +61,8 @@ class _AddNewScreenState extends State<AddNewScreen> {
               ElevatedButton(
                   onPressed: () {
                     if (_addfromKey.currentState!.validate()) {
+                      Todo todo = Todo();
+                      widget.onAddTodo(todo);
                       Navigator.pop(context);
                     }
                   },
