@@ -19,8 +19,6 @@ class AllTodolistTabBarScreen extends StatelessWidget {
     return ListView.builder(
       itemCount: todoList.length,
       itemBuilder: (context, index) {
-        Todo todo = todoList[index];
-
         return Dismissible(
           key: UniqueKey(),
           onDismissed: (_) {
@@ -36,4 +34,4 @@ class AllTodolistTabBarScreen extends StatelessWidget {
       },
     );
   }
-
+}

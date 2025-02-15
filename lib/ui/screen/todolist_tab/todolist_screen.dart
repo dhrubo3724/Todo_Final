@@ -15,7 +15,7 @@ class TodolistScreen extends StatefulWidget {
 class _TodolistScreenState extends State<TodolistScreen>
     with SingleTickerProviderStateMixin {
   //late TabController _tabController = TabController(length:3,vsync: this)
-  List<Todo> _todoList = [];
+  final List<Todo> _todoList = [];
   // @override
   // void initState() {
   //
@@ -49,8 +49,6 @@ class _TodolistScreenState extends State<TodolistScreen>
     );
   }
 
-
-
   FloatingActionButton _buildAddFloatingActionButton() {
     return FloatingActionButton.extended(
       onPressed: () {
@@ -58,7 +56,7 @@ class _TodolistScreenState extends State<TodolistScreen>
           context,
           MaterialPageRoute(
               builder: (context) => AddNewScreen(
-                    onAddTodo: ,
+                    onAddTodo: _addNewTodo(Todo as Todo),
                   )),
         );
       },
@@ -67,6 +65,7 @@ class _TodolistScreenState extends State<TodolistScreen>
       icon: Icon(Icons.add),
     );
   }
+
   TabBar _buildTabBar() {
     return TabBar(tabs: [
       Text("All"),
@@ -83,7 +82,7 @@ class _TodolistScreenState extends State<TodolistScreen>
   }
 
   void _deleteTodo(int index) {
-    _todoList.remove(index);
+    _todoList.removeAt(index);
     if (mounted) {
       setState(() {});
     }
